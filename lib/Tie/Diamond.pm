@@ -8,8 +8,9 @@ use warnings;
 
 sub TIEARRAY {
     my $class = shift;
+    my $opts  = shift // {};
 
-    bless { size=>0, eof=>0 }, $class;
+    bless { size=>0, eof=>0, opts=>$opts }, $class;
 }
 
 sub FETCH {
@@ -32,6 +33,7 @@ sub FETCHSIZE {
         $size = $self->{size};
     } elsif (my $rec = <>) {
         $size = ++$self->{size};
+        chomp($rec) if $self->{opts}{chomp};
         $self->{rec} = $rec;
     } else {
         $self->{eof}++;
@@ -52,6 +54,9 @@ sub FETCHSIZE {
      ...
  }
 
+ # to autochomp lines ...
+ tie my(@ary), "Tie::Diamond", {chomp=>1} or die;
+
 
 =head1 DESCRIPTION
 
@@ -61,6 +66,19 @@ as shown in Synopsis.
 
 The array backend does not slurp all lines into memory (or store past lines at
 all, actually), so it's safe to iterate over gigantic input.
+
+
+=head1 TIE() OPTIONS
+
+Options are passed as a hashref. Known keys:
+
+=over 4
+
+=item * chomp => BOOL (default 0)
+
+If set to true, lines will be chomp()-ed.
+
+=back
 
 
 =head1 FAQ
