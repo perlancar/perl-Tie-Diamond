@@ -1,5 +1,10 @@
 Revision history for Tie-Diamond
 
+0.03    2012-07-13 (SHARYANTO)
+
+        Add 'chomp' option.
+
+
 0.02    2012-07-13 (SHARYANTO)
 
         No functional changes. Write a bit more documentation.
