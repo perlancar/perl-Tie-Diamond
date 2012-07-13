@@ -85,10 +85,13 @@ If set to true, lines will be chomp()-ed.
 
 =head2 Why?
 
-So you can treat the diamond operator as an array. One of my modules,
-L<Data::Unixish>, uses this. A function can be passed a real array (to iterate
-over a Perl array), or a tied array (to iterate lines from STDIN or files
-mentioned in arguments); they don't have to change their iteration syntax.
+So you can iterate using each(), basically, or to be compatible with a normal
+Perl.
+
+One of my modules, L<Data::Unixish>, has functions that accept array. It can
+either an actual Perl array (to iterate over a in-memory structure), or a tied
+array (to iterate lines from STDIN/files). The functions do not need to care;
+they can just use each().
 
 =head2 Can I do this?
 
