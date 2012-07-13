@@ -60,9 +60,10 @@ sub FETCHSIZE {
 
 =head1 DESCRIPTION
 
-This module lets you iterate the diamond operator via a Perl array. Currently
-the only useful thing you can do with the array is just iterate it using each(),
-as shown in Synopsis.
+This class lets you iterate the diamond operator via a Perl array. Currently the
+only useful thing you can do with the array is just iterate it using each(), as
+shown in Synopsis. To be more exact, the class currently only implements FETCH()
+and FETCHSIZE().
 
 The array backend does not slurp all lines into memory (or store past lines at
 all, actually), so it's safe to iterate over gigantic input.
@@ -102,7 +103,7 @@ do:
 
  @other = <>; # or print <>
 
-and skip this module altogether.
+and skip this class altogether.
 
 
 =head1 SEE ALSO
