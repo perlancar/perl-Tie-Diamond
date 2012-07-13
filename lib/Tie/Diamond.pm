@@ -93,14 +93,16 @@ either an actual Perl array (to iterate over a in-memory structure), or a tied
 array (to iterate lines from STDIN/files). The functions do not need to care;
 they can just use each().
 
-=head2 Can I do this?
+=head2 Can I slurp?
 
  @other = @ary; # or print @ary
 
-Currently no. But since you are slurping all lines anyway, you might as well
-just do:
+Currently no. And anyway, if you want to slurp all lines, you might as well just
+do:
 
  @other = <>; # or print <>
+
+and skip this module altogether.
 
 
 =head1 SEE ALSO
