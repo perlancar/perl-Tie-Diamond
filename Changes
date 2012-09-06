@@ -1,5 +1,11 @@
 Revision history for Tie-Diamond
 
+0.04    2012-09-06 (SHARYANTO)
+
+        No functional changes. Use Syntax::Feature::EachOnArray to support perl
+        < 5.12.
+
+
 0.03    2012-07-13 (SHARYANTO)
 
         Add 'chomp' option.
