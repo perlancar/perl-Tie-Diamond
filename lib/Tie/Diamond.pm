@@ -112,4 +112,6 @@ L<Iterator::Diamond>
 
 L<Tie::File>
 
+L<Syntax::Feature::EachOnArray> if you are using Perl older than 5.12.
+
 =cut

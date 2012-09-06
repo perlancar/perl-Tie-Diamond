@@ -3,6 +3,7 @@
 use 5.010;
 use strict;
 use warnings;
+use syntax 'each_on_array';
 
 use File::Slurp;
 use File::Temp qw(tempfile);
