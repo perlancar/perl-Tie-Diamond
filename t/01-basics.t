@@ -7,7 +7,7 @@ use syntax 'each_on_array';
 
 use File::Slurp;
 use File::Temp qw(tempfile);
-use Test::More 0.96;
+use Test::More 0.98;
 use Tie::Diamond;
 
 my ($fh, $filename) = tempfile();
