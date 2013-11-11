@@ -31,13 +31,23 @@ sub FETCHSIZE {
     my $size;
     if ($self->{eof}) {
         $size = $self->{size};
-    } elsif (my $rec = <>) {
-        $size = ++$self->{size};
-        chomp($rec) if $self->{opts}{chomp};
-        $self->{rec} = $rec;
     } else {
-        $self->{eof}++;
-        $size = $self->{size};
+        my $rec;
+        if ($self->{opts}{utf8}) {
+            use open ':std', ':utf8';
+            $rec = <>;
+        } else {
+            $rec = <>;
+        }
+
+        if ($rec) {
+            $size = ++$self->{size};
+            chomp($rec) if $self->{opts}{chomp};
+            $self->{rec} = $rec;
+        } else {
+            $self->{eof}++;
+            $size = $self->{size};
+        }
     }
     #print "FETCHSIZE() -> $size\n";
     $size;
@@ -78,6 +88,11 @@ Options are passed as a hashref. Known keys:
 =item * chomp => BOOL (default 0)
 
 If set to true, lines will be chomp()-ed.
+
+=item * utf8 => BOOL (default 0)
+
+If set to true, will issue a 'use open qw(:std :utf8)' pragma so that input is
+read as UTF-8 data.
 
 =back
 
