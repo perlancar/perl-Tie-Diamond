@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use syntax 'each_on_array';
 
-use File::Slurp;
+use File::Slurp::Tiny qw(write_file);
 use File::Temp qw(tempfile);
 use Test::More 0.98;
 use Tie::Diamond;
