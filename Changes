@@ -1,5 +1,12 @@
 Revision history for Tie-Diamond
 
+0.06    2014-05-17 (SHARYANTO)
+
+        - No functional changes.
+
+        - Replace File::Slurp with File::Slurp::Tiny.
+
+
 0.05    2013-11-11 (SHARYANTO)
 
         - Add option: utf8.
